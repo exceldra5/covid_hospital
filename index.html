@@ -1436,7 +1436,6 @@
     <script>
         var lat;
         var lng;
-        var best 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -1452,7 +1451,8 @@
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
-                var lengtharray = []
+                var lengtharray = [];
+                var best;
                 lat = result[0].y
                 lng = result[0].x
                 console.log(lat, lng); 
