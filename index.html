@@ -22,6 +22,7 @@
     <button id="search" onclick="search()">주소입력</button>
     <!--주소입력 버튼-->
     <div id="map" style="width:100%;height:350px;"></div>
+    <p id="best"></p>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fbfdc1edc1cc709b2922ab187078e81&libraries=services"></script>
 
@@ -1435,7 +1436,7 @@
     <script>
         var lat;
         var lng;
-        var best;
+        var best 
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -1464,7 +1465,8 @@
                 }
                 lengtharray.pop()
                 best = information[lengtharray.indexOf(Math.min(...lengtharray))];
-                alert(best);
+                var bestValue = document.getElementById('best');
+                bestValue = best.시설명;
             }
 
         };
