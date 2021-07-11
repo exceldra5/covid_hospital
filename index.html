@@ -1434,6 +1434,8 @@
 
     <!-- 입력 받은 주소 위도 경도 계산 -->
     <script>
+        var lat;
+        var lng;
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -1449,8 +1451,8 @@
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {  
             if (status === kakao.maps.services.Status.OK) {
-                var lat = result[0].y
-                var lng = result[0].x
+                lat = result[0].y
+                lng = result[0].x
                 console.log(lat, lng);
                 // console.log(result[0].y, result[0].x);
             }
@@ -1508,7 +1510,11 @@
             geocoder.addressSearch(information[i].주소, callback2)
             i = i+1;
         }
-        console.log("latarray:",latarray, "lngarray:",lngarray);
+        // console.log("latarray:",latarray, "lngarray:",lngarray);
+        j = 0;
+        // while (j < information.length){
+        //     Math.pow((parseFloat(latarray[j])-parseFloat(lat)),2)+Math.pow((parseFloat(lngarray[j])-parseFloat(lng)),2)
+        // }
     </script>
 </body>
 
