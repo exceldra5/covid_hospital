@@ -39,10 +39,12 @@ var callback = function(result, status) {
     }
 };
 
-geocoder.addressSearch("일산3동", callback);
+
 
 function search(){
     console.log(document.getElementById("lpoint").value)
+    var locationName = document.getElementById("lpoint").value
+    geocoder.addressSearch(locationName, callback);
 }
 // 주소로 좌표를 검색합니다
 // geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
