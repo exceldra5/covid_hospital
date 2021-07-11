@@ -1449,10 +1449,10 @@
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {  
             if (status === kakao.maps.services.Status.OK) {
-                var lat = result[0].y
-                var lng = result[0].x
-                console.log(lat, lng);
-                // console.log(result[0].y, result[0].x);
+                // var lat = result[0].y
+                // var lng = result[0].x
+                // console.log(lat, lng);
+                console.log(result[0].y, result[0].x);
             }
         };
 
