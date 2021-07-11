@@ -1436,6 +1436,8 @@
     <script>
         var lat;
         var lng;
+        var name;
+        var addr;
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -1465,8 +1467,10 @@
                 }
                 lengtharray.pop()
                 best = information[lengtharray.indexOf(Math.min(...lengtharray))];
-                console.log(best.시설명);
-                document.write("시설명 : "+best.시설명);
+                // console.log(best.시설명);
+                name = best.시설명;
+                addr = best.주소;
+                document.write("시설명 : "+name);
                 // var bestValue = document.getElementById('best');
                 // bestValue = best.시설명;
             }
