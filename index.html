@@ -1464,9 +1464,12 @@
                     lengtharray.push(lengthvalue);
                     j = j + 1;
                 }
+                console.log(lengtharray);
                 lengtharray.pop()
-                name = information[lengtharray.indexOf(Math.min(...lengtharray))].시설명;
-                addr = information[lengtharray.indexOf(Math.min(...lengtharray))].주소;
+                var num1 = lengtharray.indexOf(Math.min(...lengtharray));
+                console.log(num1);
+                name = information[num1].시설명;
+                addr = information[num1].주소;
                 // document.write("시설명 : "+name);
                 console.log(name, addr);
                 lengtharray = [];
