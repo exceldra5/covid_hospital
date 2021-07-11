@@ -1431,7 +1431,26 @@
             }
         ]
     </script>
+    <script>
+        function calcDistance(lat1, lon1, lat2, lon2){
+            var theta = lon1 - lon2;
+            dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1))
+                * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+            dist = Math.acos(dist);
+            dist = rad2deg(dist);
+            dist = dist * 60 * 1.1515;
+            dist = dist * 1.609344;
+            return Number(dist*1000).toFixed(2);
+        }
 
+        function deg2rad(deg) {
+            return (deg * Math.PI / 180);
+        }
+        function rad2deg(rad) {
+            return (rad * 180 / Math.PI);
+        }
+
+    </script>
     <!-- 입력 받은 주소 위도 경도 계산 -->
     <script>
         var lat;
@@ -1479,8 +1498,8 @@
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
-                    var lengthvalue = Math.pow((parseFloat(latarray[j]) - parseFloat(lat)), 2) + Math.pow((parseFloat(lngarray[j]) - parseFloat(lng)), 2)
-                    lengtharray.push(lengthvalue);
+                    var lengthvalue = calcDistance(parseFloat(lat), parseFloat(lng), parseFloat(latarray[j]), parseFloat(lngarray[j]));
+                    lengtharray.push(parseFloat(lengthvalue));
                     j = j + 1;
                 }
                 console.log(lengtharray);
