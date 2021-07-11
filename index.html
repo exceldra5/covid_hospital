@@ -17,8 +17,18 @@
 <input id="lpoint" value="일산3동" type="text"> <!--위치값 입력 (동 단위로 입력)-->
 <button id="search" onclick="search()">주소입력</button> <!--주소입력 버튼-->
 <div id="map" style="width:100%;height:350px;"></div>
-
+<p id="data"></p>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fbfdc1edc1cc709b2922ab187078e81&libraries=services"></script>
+<script>
+    const url = 'https://api.odcloud.kr/api/15077603/v1/uddi:9fdd2474-38ab-4cd6-b438-a145b1e2848e?page=1&perPage=10';
+
+    fetch(url)
+    .then(res => res.json())
+    .then(myJson => {
+        document.getElementById('data').innerText = JSON.stringify(myJson, null, 1);
+        
+    })
+</script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
@@ -35,7 +45,7 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 var callback = function(result, status) {  //위도 경도 콘솔에 출력
     if (status === kakao.maps.services.Status.OK) {
-        console.log(result[0].x, result[0].y);
+        console.log(result[0].y, result[0].x);
     }
 };
 
