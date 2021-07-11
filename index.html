@@ -25,8 +25,10 @@
     <p id="data"></p>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fbfdc1edc1cc709b2922ab187078e81&libraries=services"></script>
+    
+        <!-- 공공 데이터 oject 생성 -->
     <script>
-        var information = [//공공 데이터 oject
+        var information = [
             {
                 "연번": 1,
                 "시설명": "국립중앙의료원 D동",
@@ -1429,6 +1431,8 @@
             }
         ]
     </script>
+
+    <!-- 입력 받은 주소 위도 경도 계산 -->
     <script>
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
@@ -1442,14 +1446,14 @@
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
 
-
-        var callback = function (result, status) {  //위도 경도 콘솔에 출력
+        //위도 경도 콘솔에 출력
+        var callback = function (result, status) {  
             if (status === kakao.maps.services.Status.OK) {
                 console.log(result[0].y, result[0].x);
             }
         };
 
-        geocoder.addressSearch("서울특별시 중구 을지로 39길 29", callback); //입력 받은 위치의 위도 경도 값
+        //geocoder.addressSearch("서울특별시 중구 을지로 39길 29", callback); //입력 받은 위치의 위도 경도 값
 
         function search() { //주소 입력 버튼 작동
             // console.log(document.getElementById("lpoint").value)  //위치 입력값 확인
@@ -1480,7 +1484,10 @@
         //         map.setCenter(coords);
         //     } 
         // });
-        console.log();
+        // console.log();
+    </script>
+    <script>
+
     </script>
 </body>
 
