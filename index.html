@@ -1431,6 +1431,13 @@
             }
         ]
     </script>
+    <script>
+        // 지도를 생성합니다    
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        // 주소-좌표 변환 객체를 생성합니다
+        var geocoder = new kakao.maps.services.Geocoder();
+    </script>
 
     <script>
         var latarray = []
@@ -1456,23 +1463,18 @@
     </script>
 
     <!-- 입력 받은 주소 위도 경도 계산 -->
-    <script>
+    <script????>
         var lat;
         var lng;
         var name;
         var addr;
         var lengtharray = [];
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
                 level: 3 // 지도의 확대 레벨
             };
 
-        // 지도를 생성합니다    
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-
-        // 주소-좌표 변환 객체를 생성합니다
-        var geocoder = new kakao.maps.services.Geocoder();
 
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
@@ -1483,17 +1485,11 @@
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
-                    var lengthvalue = Math.pow((parseFloat(latarray[j]) - parseFloat(lat)), 2) + Math.pow((parseFloat(lngarray[j]) - parseFloat(lng)), 2)
-                    lengtharray.push(lengthvalue);
-                    j = j + 1;
+                    var lengthvalue = Math.pow((parseFloat(latarray[j]) - parseFloat(lat)), 2) +
+                        Math.pow((parseFloat(lngarray[j]) - parseFloat(lng)), 2) lengtharray.push(lengthvalue); j = j + 1;
                 }
-                console.log(lengtharray);
-                lengtharray.pop()
-                var num1 = lengtharray.indexOf(Math.min(...lengtharray));
-                console.log(num1);
-                name = information[num1].시설명;
-                addr = information[num1].주소;
-                // document.write("시설명 : "+name);
+                console.log(lengtharray); lengtharray.pop() var num1 = lengtharray.indexOf(Math.min(...lengtharray));
+                console.log(num1); name = information[num1].시설명; addr = information[num1].주소; // document.write("시설명 : "+name);
                 console.log(name, addr);
                 lengtharray = [];
                 // var bestValue = document.getElementById('best');
@@ -1502,39 +1498,17 @@
 
         };
 
-        //geocoder.addressSearch("서울특별시 중구 을지로 39길 29", callback); //입력 받은 위치의 위도 경도 값
-
-        function search() { //주소 입력 버튼 작동
-            // console.log(document.getElementById("lpoint").value)  //위치 입력값 확인
-            var locationName = document.getElementById("lpoint").value //위치 변수 정의
-            geocoder.addressSearch(locationName, callback); //입력 받은 위치의 위도 경도 값
-        }
-        // 주소로 좌표를 검색합니다
-        // geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
-
-        //     // 정상적으로 검색이 완료됐으면 
-        //     if (status === kakao.maps.services.Status.OK) {
-
-        //         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-        //         // 결과값으로 받은 위치를 마커로 표시합니다
-        //         var marker = new kakao.maps.Marker({
-        //             map: map,
-        //             position: coords
-        //         });
-
-        //         // 인포윈도우로 장소에 대한 설명을 표시합니다
-        //         var infowindow = new kakao.maps.InfoWindow({
-        //             content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-        //         });
-        //         infowindow.open(map, marker);
-
-        //         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-        //         map.setCenter(coords);
-        //     } 
-        // });
-        // console.log();
-    </script>
+        //geocoder.addressSearch(" 서울특별시 중구 을지로 39길 29", callback); //입력 받은 위치의 위도 경도 값 function search() { //주소 입력 버튼
+        작동 // console.log(document.getElementById("lpoint").value) //위치 입력값 확인 var
+        locationName = document.getElementById("lpoint").value //위치 변수 정의 geocoder.addressSearch(locationName,
+        callback); //입력 받은 위치의 위도 경도 값 } // 주소로 좌표를 검색합니다 // geocoder.addressSearch('제주특별자치도 제주시 첨단로 242',
+        function(result, status) { // // 정상적으로 검색이 완료됐으면 // if (status===kakao.maps.services.Status.OK) { // var
+            coords = new kakao.maps.LatLng(result[0].y, result[0].x); // // 결과값으로 받은 위치를 마커로 표시합니다 // var marker=new
+            kakao.maps.Marker({ // map: map, // position: coords // }); // // 인포윈도우로 장소에 대한 설명을 표시합니다 // var
+                infowindow=new kakao.maps.InfoWindow({ //
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>' // }); //
+            infowindow.open(map, marker); // // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다 // map.setCenter(coords); // } // }); //
+                    console.log(); </script???>
 
 </body>
 
