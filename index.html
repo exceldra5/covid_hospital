@@ -1452,7 +1452,7 @@
                 var lat = result[0].y
                 var lng = result[0].x
                 console.log(lat, lng);
-                console.log(result[0].y, result[0].x);
+                // console.log(result[0].y, result[0].x);
             }
         };
 
@@ -1490,10 +1490,28 @@
         // console.log();
     </script>
     <script>
-        // i = 0;
-        // while (i < information.length){
-            
-        // }
+        var latarry = []
+        var lngarry = []
+        var lengtharry = []
+        var callback2 = function (result, status) {  
+            if (status === kakao.maps.services.Status.OK) {
+                latarray.push(result[0].y);
+                lngarray.push(result[0].x);
+                // console.log(result[0].y, result[0].x);
+            }
+        };
+        function search() { //주소 입력 버튼 작동
+            // console.log(document.getElementById("lpoint").value)  //위치 입력값 확인
+            var locationName = document.getElementById("lpoint").value //위치 변수 정의
+            geocoder.addressSearch(locationName, callback); //입력 받은 위치의 위도 경도 값
+        }
+        
+        i = 0;
+        while (i < information.length){
+            geocoder.addressSearch(information[i].시설명, callback2)
+            i = i+1;
+        }
+        console.log(latarray, lngarray);
     </script>
 </body>
 
