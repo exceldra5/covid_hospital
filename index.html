@@ -1470,8 +1470,8 @@
             if (status === kakao.maps.services.Status.OK) {
                 // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
                 // console.log(result[0].y);
-                latarray.push(result[0].y);
-                lngarray.push(result[0].x);
+                // latarray.push(result[0].y);
+                // lngarray.push(result[0].x);
                 // console.log(result[0].시설명)
                 // console.log("hello");
                 // console.log(result[0].y, result[0].x);
@@ -1480,14 +1480,20 @@
             
         };
 
-        geocoder.addressSearch(information[0].주소, callback2)
+        // geocoder.addressSearch(information[0].주소, callback2)
+        // geocoder.addressSearch(information[1].주소, callback2)
+        // geocoder.addressSearch(information[2].주소, callback2)
+        // geocoder.addressSearch(information[3].주소, callback2)
+        // geocoder.addressSearch(information[4].주소, callback2)
+        // geocoder.addressSearch(information[5].주소, callback2)
 
-        // i = 0;
-        // while (i < 280) {
-        //     // console.log(information[i].주소);
-        //     // geocoder.addressSearch(information[i].주소, callback2)
-        //     i = i + 1;
-        // }
+        i = 0;
+        while (i < 280) {
+            console.log(information[i].주소);
+            geocoder.addressSearch(information[i].주소, callback2)
+            latarray.push(this.result[0].y);
+            i = i + 1;
+        }
 
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
