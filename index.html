@@ -1488,6 +1488,7 @@
 
         i = 0;
         while (i < information.length) {
+            console.log(information[i].주소);
             geocoder.addressSearch(information[i].주소, callback2)
             i = i + 1;
         }
