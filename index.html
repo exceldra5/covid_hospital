@@ -1499,19 +1499,18 @@
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
-                    var lengthvalue = calcDistance(parseFloat(lat), parseFloat(lng), parseFloat(latarray[j]), parseFloat(lngarray[j]));
-                    lengtharray.push(lengthvalue);
+                    lengtharray.push(calcDistance(lat, lng, latarray[j], lngarray[j]));
                     j = j + 1;
                 }
                 console.log(lengtharray);
-                lengtharray.pop()
-                var num1 = lengtharray.indexOf(String(Math.min(...lengtharray)));
-                console.log(num1);
-                name = information[num1].시설명;
-                addr = information[num1].주소;
-                // document.write("시설명 : "+name);
-                console.log(name, addr);
-                lengtharray = [];
+                // lengtharray.pop()
+                // var num1 = lengtharray.indexOf(String(Math.min(...lengtharray)));
+                // console.log(num1);
+                // name = information[num1].시설명;
+                // addr = information[num1].주소;
+                // // document.write("시설명 : "+name);
+                // console.log(name, addr);
+                // lengtharray = [];
                 // var bestValue = document.getElementById('best');
                 // bestValue = best.시설명;
             }
