@@ -1454,7 +1454,6 @@
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
-                var best;
                 lat = result[0].y
                 lng = result[0].x
                 console.log(lat, lng); 
@@ -1466,10 +1465,8 @@
                     j = j + 1;
                 }
                 lengtharray.pop()
-                best = information[lengtharray.indexOf(Math.min(...lengtharray))];
-                // console.log(best.시설명);
-                name = best.시설명;
-                addr = best.주소; 
+                name = information[lengtharray.indexOf(Math.min(...lengtharray))].시설명;
+                addr = information[lengtharray.indexOf(Math.min(...lengtharray))].주소;
                 document.write("시설명 : "+name);
                 document.write("<a href = \"https://covidhospital2.netlify.app/\">뒤로가기</a>")
                 // var bestValue = document.getElementById('best');
