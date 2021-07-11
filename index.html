@@ -35,11 +35,11 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 var callback = function(result, status) {
     if (status === kakao.maps.services.Status.OK) {
-        console.log(result.x);
+        console.log(result);
     }
 };
 
-geocoder.addressSearch('일산 3동', callback);
+geocoder.addressSearch('일산역', callback);
 
 // 주소로 좌표를 검색합니다
 // geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
