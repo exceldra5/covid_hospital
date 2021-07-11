@@ -25,8 +25,8 @@
     <p id="data"></p>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fbfdc1edc1cc709b2922ab187078e81&libraries=services"></script>
-    
-        <!-- 공공 데이터 oject 생성 -->
+
+    <!-- 공공 데이터 oject 생성 -->
     <script>
         var information = [
             {
@@ -1449,12 +1449,18 @@
         var geocoder = new kakao.maps.services.Geocoder();
 
         //위도 경도 콘솔에 출력
-        var callback = function (result, status) {  
+        var callback = function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 lat = result[0].y
                 lng = result[0].x
                 console.log(lat, lng);
                 // console.log(result[0].y, result[0].x);
+                j = 0;
+                while (j < information.length) {
+                    var lengthvalue = Math.pow((parseFloat(latarray[j]) - parseFloat(lat)), 2) + Math.pow((parseFloat(lngarray[j]) - parseFloat(lng)), 2)
+                    lengtharray.push[lengthvalue];
+                    j = j + 1;
+                }
             }
         };
 
@@ -1495,7 +1501,7 @@
         var latarray = []
         var lngarray = []
         var lengtharray = []
-        var callback2 = function (result, status) {  
+        var callback2 = function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 latarray.push(result[0].y);
                 lngarray.push(result[0].x);
@@ -1504,19 +1510,14 @@
                 // console.log(result[0].y, result[0].x);
             }
         };
-        
+
         i = 0;
-        while (i < information.length){
+        while (i < information.length) {
             geocoder.addressSearch(information[i].주소, callback2)
-            i = i+1;
+            i = i + 1;
         }
         // console.log("latarray:",latarray, "lngarray:",lngarray);
-        j = 0;
-        while (j < information.length){
-            var lengthvalue = Math.pow((parseFloat(latarray[j])-parseFloat(lat)),2)+Math.pow((parseFloat(lngarray[j])-parseFloat(lng)),2)
-            lengtharray.push[lengthvalue];
-            j = j+1;
-        }
+
     </script>
 </body>
 
