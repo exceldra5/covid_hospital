@@ -1432,6 +1432,29 @@
         ]
     </script>
 
+    <script>
+        var latarray = []
+        var lngarray = []
+        var callback2 = function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                latarray.push(result[0].y);
+                lngarray.push(result[0].x);
+                // console.log(result[0].시설명)
+                // console.log("hello");
+                // console.log(result[0].y, result[0].x);
+            }
+        };
+
+        i = 0;
+        while (i < information.length) {
+            geocoder.addressSearch(information[i].주소, callback2)
+            i = i + 1;
+        }
+
+    // console.log("latarray:",latarray, "lngarray:",lngarray);
+
+    </script>
+
     <!-- 입력 받은 주소 위도 경도 계산 -->
     <script>
         var lat;
@@ -1456,7 +1479,7 @@
             if (status === kakao.maps.services.Status.OK) {
                 lat = result[0].y
                 lng = result[0].x
-                console.log(lat, lng); 
+                console.log(lat, lng);
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
@@ -1512,28 +1535,7 @@
         // });
         // console.log();
     </script>
-    <script>
-        var latarray = []
-        var lngarray = []
-        var callback2 = function (result, status) {
-            if (status === kakao.maps.services.Status.OK) {
-                latarray.push(result[0].y);
-                lngarray.push(result[0].x);
-                // console.log(result[0].시설명)
-                // console.log("hello");
-                // console.log(result[0].y, result[0].x);
-            }
-        };
 
-        i = 0;
-        while (i < information.length) {
-            geocoder.addressSearch(information[i].주소, callback2)
-            i = i + 1;
-        }
-                
-        // console.log("latarray:",latarray, "lngarray:",lngarray);
-
-    </script>
 </body>
 
 </html>
