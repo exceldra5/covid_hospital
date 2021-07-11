@@ -14,8 +14,8 @@
         </a>
     </em>
 </p>
-<input id="lpoint" value="일산3동" type="text">
-<button id="search" onclick="search()">주소입력</button>
+<input id="lpoint" value="일산3동" type="text"> <!--위치값 입력 (동 단위로 입력)-->
+<button id="search" onclick="search()">주소입력</button> <!--주소입력 버튼-->
 <div id="map" style="width:100%;height:350px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1fbfdc1edc1cc709b2922ab187078e81&libraries=services"></script>
@@ -33,18 +33,18 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 var geocoder = new kakao.maps.services.Geocoder();
 
 
-var callback = function(result, status) {
+var callback = function(result, status) {  //위도 경도 콘솔에 출력
     if (status === kakao.maps.services.Status.OK) {
         console.log(result[0].x, result[0].y);
     }
 };
 
+geocoder.addressSearch("서울특별시 중구 을지로 39길 29", callback); //입력 받은 위치의 위도 경도 값
 
-
-function search(){
-    console.log(document.getElementById("lpoint").value)
-    var locationName = document.getElementById("lpoint").value
-    geocoder.addressSearch(locationName, callback);
+function search(){ //주소 입력 버튼 작동
+    // console.log(document.getElementById("lpoint").value)  //위치 입력값 확인
+    var locationName = document.getElementById("lpoint").value //위치 변수 정의
+    geocoder.addressSearch(locationName, callback); //입력 받은 위치의 위도 경도 값
 }
 // 주소로 좌표를 검색합니다
 // geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
