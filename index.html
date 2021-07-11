@@ -1462,6 +1462,7 @@
                     lengtharray.push(lengthvalue);
                     j = j + 1;
                 }
+                lengtharray.pop()
                 best = information[lengtharray.indexOf(Math.min(...lengtharray))];
             }
         };
@@ -1518,7 +1519,6 @@
             geocoder.addressSearch(information[i].주소, callback2)
             i = i + 1;
         }
-        lengtharray.pop()
         
         
         // console.log("latarray:",latarray, "lngarray:",lngarray);
