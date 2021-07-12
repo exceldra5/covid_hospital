@@ -1506,11 +1506,10 @@
         });
         }
         i = 0;
-        while (i < 20) {
+        while (i < information.length) {
             check(i);
             i = i + 1;
         }
-        console.log(information[13].lat);
 
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
@@ -1521,12 +1520,12 @@
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
-                    lengtharray.push(calcDistance(lat, lng, latarray[j], lngarray[j]));
+                    lengtharray.push(calcDistance(lat, lng, information[j].lat, information[j].lng));
                     j = j + 1;
                 }
                 console.log(lengtharray);
                 lengtharray.pop()
-                lengtharray = [];
+                // lengtharray = [];
             }
 
         };
