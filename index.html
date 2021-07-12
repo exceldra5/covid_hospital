@@ -1488,7 +1488,18 @@
 
         function check(closed_i){
             console.log(information[closed_i].주소);
-            geocoder.addressSearch(information[closed_i].주소, callback2);
+            geocoder.addressSearch(information[closed_i].주소, function (result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                // console.log(result[0].y);
+                // latarray.push(result[0].y);
+                // lngarray.push(result[0].x);
+                // console.log(result[0].시설명)
+                console.log(result[0].y);
+                // console.log(coords);
+            }
+            
+        };);
         }
         i = 0;
         while (i < 20) {
