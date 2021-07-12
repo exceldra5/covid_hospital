@@ -1473,7 +1473,7 @@
                 // latarray.push(result[0].y);
                 // lngarray.push(result[0].x);
                 // console.log(result[0].시설명)
-                console.log(result[0].y, result[0].x);
+                return result[0].y;
                 // console.log(coords);
             }
             
@@ -1489,8 +1489,8 @@
         i = 0;
         while (i < 20) {
             console.log(information[i].주소);
-            geocoder.addressSearch(information[i].주소, callback2);
-            console.log(i);
+            var lat1 = geocoder.addressSearch(information[i].주소, callback2);
+            console.log(lat1);
             i = i + 1;
         }
 
