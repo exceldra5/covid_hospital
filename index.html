@@ -1487,7 +1487,7 @@
         // geocoder.addressSearch(information[5].주소, callback2)
 
         function check(closed_i){
-            console.log(information[closed_i].주소);
+            // console.log(information[closed_i].주소);
             geocoder.addressSearch(information[closed_i].주소, function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -1496,9 +1496,10 @@
                 // lngarray.push(result[0].x);
                 // console.log(result[0].시설명)
                 // console.log(result[0].y);
-                console.log(closed_i);
-                console.log(information[closed_i].주소);
+                // console.log(closed_i);
+                // console.log(information[closed_i].주소);
                 information[closed_i].lat = result[0].y;
+                information[closed_i].lng = result[0].x;
                 // console.log(coords);
             }
             
@@ -1509,7 +1510,7 @@
             check(i);
             i = i + 1;
         }
-        
+        console.log(information[13].lat);
 
         //위도 경도 콘솔에 출력
         var callback = function (result, status) {
