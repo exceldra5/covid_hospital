@@ -1489,7 +1489,7 @@
         i = 0;
         while (i < 20) {
             console.log(information[i].주소);
-            function(i) {
+            function loop(i) {
                 geocoder.addressSearch(information[i].주소, callback2);
             }
             i = i + 1;
