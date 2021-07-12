@@ -1473,10 +1473,8 @@
                 // latarray.push(result[0].y);
                 // lngarray.push(result[0].x);
                 // console.log(result[0].시설명)
-                // console.log("hello");
-                // console.log(result[0].y, result[0].x);
+                console.log(result[0].y, result[0].x);
                 // console.log(coords);
-                console.log(i);
             }
             
         };
@@ -1492,7 +1490,6 @@
         while (i < 280) {
             console.log(information[i].주소);
             geocoder.addressSearch(information[i].주소, callback2)
-            latarray.push(this.y);
             i = i + 1;
         }
 
