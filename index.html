@@ -1491,7 +1491,7 @@
                 // console.log(result[0].y, result[0].x);
                 j = 0;
                 while (j < information.length) {
-                    lengtharray.push(calcDistance(lat, lng, information[j].lat, information[j].lng));
+                    lengtharray.push(parseFloat(calcDistance(lat, lng, information[j].lat, information[j].lng)));
                     j = j + 1;
                 }
                 console.log(lengtharray);
