@@ -1464,40 +1464,11 @@
         // 주소-좌표 변환 객체를 생성합니다
         var geocoder = new kakao.maps.services.Geocoder();
 
-        var latarray = []
-        var lngarray = []
-        var callback2 = function (result, status) {
-            if (status === kakao.maps.services.Status.OK) {
-                // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                // console.log(result[0].y);
-                // latarray.push(result[0].y);
-                // lngarray.push(result[0].x);
-                // console.log(result[0].시설명)
-                console.log(result[0].y);
-                // console.log(coords);
-            }
-            
-        };
-
-        // geocoder.addressSearch(information[0].주소, callback2)
-        // geocoder.addressSearch(information[1].주소, callback2)
-        // geocoder.addressSearch(information[2].주소, callback2)
-        // geocoder.addressSearch(information[3].주소, callback2)
-        // geocoder.addressSearch(information[4].주소, callback2)
-        // geocoder.addressSearch(information[5].주소, callback2)
 
         function check(closed_i){
             // console.log(information[closed_i].주소);
             geocoder.addressSearch(information[closed_i].주소, function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
-                // var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                // console.log(result[0].y);
-                // latarray.push(result[0].y);
-                // lngarray.push(result[0].x);
-                // console.log(result[0].시설명)
-                // console.log(result[0].y);
-                // console.log(closed_i);
-                // console.log(information[closed_i].주소);
                 information[closed_i].lat = result[0].y;
                 information[closed_i].lng = result[0].x;
                 // console.log(coords);
@@ -1526,6 +1497,7 @@
                 console.log(lengtharray);
                 lengtharray.pop()
                 // lengtharray = [];
+                console.log(information[lengtharray.indexOf(Math.min(...lengtharray))]);
             }
 
         };
