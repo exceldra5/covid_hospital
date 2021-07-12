@@ -1489,9 +1489,9 @@
         i = 0;
         while (i < 20) {
             console.log(information[i].주소);
-            function loop(i) {
-                geocoder.addressSearch(information[i].주소, callback2);
-            }
+            (function(closed_i) {
+                geocoder.addressSearch(information[closed_i].주소, callback2);
+            })(i);
             i = i + 1;
         }
 
